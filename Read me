@@ -1,1 +1,22 @@
-This is my EDA project
+# Week 1 – Python & Data Stack: EDA on Titanic 🧠
+
+This notebook explores the Titanic dataset using Python (pandas, numpy, seaborn).
+
+## 🔍 What I Did
+- Cleaned and explored the dataset  
+- Visualized survival patterns (gender, age, class)  
+- Created basic features like `family_size`  
+- Summarized key findings  
+
+## 🧠 Key Insights
+- Female passengers had higher survival rates  
+- 1st class passengers were more likely to survive  
+- Fare was highly skewed (log normalization helps)
+
+## 📓 Notebook
+👉 Open the notebook directly: [Week1_EDA_Titanic_Piyush.ipynb](./Week1_EDA_Titanic_Piyush.ipynb)
+
+Or run it in **Google Colab**:  
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_USERNAME/eda-titanic-week1/blob/main/Week1_EDA_Titanic_Piyush.ipynb)
+
+*(Replace `YOUR_USERNAME` with your GitHub username)*
