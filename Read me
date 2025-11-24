@@ -1,22 +1,56 @@
-# Week 1 – Python & Data Stack: EDA on Titanic 🧠
+Rollercoaster Database Analysis
 
-This notebook explores the Titanic dataset using Python (pandas, numpy, seaborn).
+Project Overview
 
-## 🔍 What I Did
-- Cleaned and explored the dataset  
-- Visualized survival patterns (gender, age, class)  
-- Created basic features like `family_size`  
-- Summarized key findings  
+This project involves an in-depth exploratory data analysis (EDA) of a comprehensive rollercoaster database. The goal was to clean, preprocess, and visualize the data to uncover trends, relationships, and key characteristics of rollercoasters, such as their speed, height, and introduction year. The analysis was conducted in Google Colab, leveraging popular Python libraries for data manipulation and visualization.
 
-## 🧠 Key Insights
-- Female passengers had higher survival rates  
-- 1st class passengers were more likely to survive  
-- Fare was highly skewed (log normalization helps)
+Dataset
 
-## 📓 Notebook
-👉 Open the notebook directly: [Week1_EDA_Titanic_Piyush.ipynb](./Week1_EDA_Titanic_Piyush.ipynb)
+The dataset used for this analysis is the 'Rollercoaster Database' from Kaggle (robikscube/rollercoaster-database). It contains detailed information about various rollercoasters, including their names, locations, manufacturers, opening dates, physical attributes (like length, speed, height), and other operational details.
 
-Or run it in **Google Colab**:  
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_USERNAME/eda-titanic-week1/blob/main/Week1_EDA_Titanic_Piyush.ipynb)
+Tools and Libraries
 
-*(Replace `YOUR_USERNAME` with your GitHub username)*
+Python: Programming language
+Google Colab: Cloud-based Jupyter Notebook environment
+pandas: For data manipulation and analysis
+numpy: For numerical operations
+matplotlib.pyplot: For creating static, interactive, and animated visualizations
+seaborn: For statistical data visualization
+scikit-learn: (Though not heavily used in this particular EDA, it was installed as part of the initial setup, indicating potential for future machine learning tasks).
+Analysis Steps
+
+The analysis followed a structured approach, encompassing data loading, cleaning, preprocessing, and exploratory data analysis:
+
+1. Data Loading
+
+The rollercoaster database was downloaded from Kaggle using the Kaggle API and loaded into a pandas DataFrame.
+
+import pandas as pd
+df = pd.read_csv('/content/rollercoaster-database/coaster_db.csv')
+2. Data Cleaning and Preprocessing
+
+Initial Inspection: Examined the dataset's shape, head, column names, data types (df.dtypes), and descriptive statistics (df.describe()) to understand its structure and content.
+Feature Selection: Selected a subset of relevant columns for the analysis, focusing on key attributes such as coaster_name, Location, Manufacturer, year_introduced, speed_mph, height_ft, Inversions_clean, and Gforce_clean.
+Data Type Conversion: Converted the opening_date_clean column to datetime objects using pd.to_datetime() for proper temporal analysis.
+Column Renaming: Renamed several columns for clarity and consistency (e.g., coaster_name to Coaster Name, year_introduced to Year Introduced).
+Handling Duplicates: Identified and removed duplicate entries, specifically looking for duplicates across a combination of ['Coaster Name', 'Location', 'Opening Date'] to ensure each unique rollercoaster event was represented only once. This reduced the dataset size from 1087 to 990 entries.
+3. Exploratory Data Analysis (EDA)
+
+Visualizations and statistical methods were employed to explore the data distribution and relationships between features:
+
+Univariate Analysis:
+
+Year Introduced: Used a bar plot to show the frequency of rollercoasters introduced each year, highlighting the most active periods in rollercoaster construction.
+Speed Distribution: Visualized the distribution of Speed_mph using histograms and Kernel Density Estimate (KDE) plots to understand the typical speed ranges of rollercoasters.
+Bivariate and Multivariate Analysis:
+
+Speed vs. Height: A scatter plot was used to explore the relationship between Speed_mph and Height_ft, revealing how these two physical characteristics correlate.
+Pairplot Analysis: A seaborn.pairplot was generated to visualize pairwise relationships and distributions among Year Introduced, Speed_mph, Height_ft, Inversions, and Gforce_clean, with Type_Main (Wood or Steel) as a hue to differentiate between coaster types.
+Correlation Heatmap: A correlation matrix of key numerical features was computed and visualized using a heatmap (seaborn.heatmap), providing a clear overview of the strength and direction of relationships between variables.
+Key Insights
+
+Industry Trends: The Year Introduced analysis highlighted specific periods of high activity in rollercoaster development, suggesting trends in amusement park expansion and technological advancements.
+Physical Relationships: A clear positive correlation was observed between a rollercoaster's Speed_mph and its Height_ft, confirming that taller coasters generally achieve higher speeds.
+Performance by Location: The analysis identified specific locations with a high concentration of fast rollercoasters, showcasing parks known for their thrill rides. For example, Cedar Point, Busch Gardens Williamsburg, and Six Flags Magic Mountain appeared to house some of the fastest coasters based on average speed for locations with at least 10 coasters.
+Data Quality: The cleaning process was crucial in ensuring the reliability of insights by addressing missing values, standardizing formats, and removing redundant entries.
+This project demonstrates a robust workflow for data analysis, from raw data to actionable insights, using Python's powerful data science ecosystem.
